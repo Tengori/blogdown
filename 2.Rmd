@@ -1,0 +1,68 @@
+---
+title: "Untitled"
+author: "Fukang"
+date: "2021/7/14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+```{r,echo=FALSE}
+draw.card = function(contact) {
+    if (require(rimage)) {
+        x = read.jpeg(file.path(R.home(), "doc/html/logo.jpg"))
+        lim = dim(x)[1:2]
+        par(mar = rep(0, 4), cex = 0.7)
+        for (i in 1:nrow(contact)) {
+            plot(0, xlim = c(-0.5, 1.5) * lim[1], ylim = c(-1.5,
+                2.5) * lim[2], axes = FALSE, ann = FALSE, type = "n", asp = 1)
+            plot(x, add = TRUE)
+            text(0.5 * lim[1], 2 * lim[2], "第一届中国R语言会议", cex = 2.5)
+            text(0.5 * lim[1], 1.5 * lim[2], "The 1st Chinese R Conference",
+                cex = 2)
+            text(0.5 * lim[1], 1 * lim[2], "北京，2008.12.13-14", cex = 1.5)
+            text(0.5 * lim[1], -0.4 * lim[2], contact[i, 1], cex = 3)
+            text(0.5 * lim[1], -0.8 * lim[2], contact[i, 2], cex = 1.5)
+            text(-1.6 * lim[1], -1.1 * lim[2],
+                paste("主办：中国人民大学应用统计科学研究中心 (www.applstats.org)",
+                "　　　中国人民大学统计学院 (stat.ruc.edu.cn)",
+                "协办：统计之都网站 (https://cos.name)", sep = "\n"),
+                cex = 1, adj = c(0, 1))
+        }
+    }
+    else install.packages("rimage")
+}
+
+# 示例
+contact = data.frame(name = c("张三", "李四"), unit = c("张家村",
+    "李家店"))
+par(ask = TRUE)
+draw.card(contact)
+
+# 写入PDF文件
+pdf(width = 3.5, height = 4.5, family = "GB1")
+draw.card(contact)
+dev.off()
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

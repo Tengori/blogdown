@@ -15,7 +15,7 @@
 baseURL = "https://www.gfukang.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
-title = "my blog"
+title = "FuKang blog"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "hugo-tranquilpeak-theme"
 # googleAnalytics = "UA-123-45"
@@ -31,12 +31,12 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "FuKang Guo"
-  bio = "Super bio with markdown support **COOL**"
+  name = "FuKang Guo | 郭富康"
+  bio = "半个理想主义者、半个杂学家 "
   job = "Student"
-  location = "Lanzhou, China"
+  location = "Lanzhou University, China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = "thibaud.lepretre@gmail.com"
+  gravatarEmail = "guofk20@gmail.com"
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
   picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
